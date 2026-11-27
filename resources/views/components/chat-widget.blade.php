@@ -68,7 +68,7 @@
             <div class="chat-bubble">
                 <p>Assalamu'alaikum! 🕌</p>
                 <p>Saya <strong>Asisten PUSDAI</strong>, siap membantu Anda mendapatkan informasi seputar Masjid Raya PUSDAI Jawa Barat.</p>
-                <p>Silakan tanyakan tentang layanan, jadwal, atau informasi lainnya!</p>
+                <p>Saya bisa bantu soal layanan, jadwal shalat &amp; kajian, donasi, alamat, sampai pertanyaan dasar seputar ibadah dan ajaran Islam.</p>
             </div>
         </div>
 
@@ -84,7 +84,13 @@
                 ❤️ Cara Donasi
             </button>
             <button class="chat-quick-btn" data-message="Dimana alamat PUSDAI dan bagaimana cara menghubungi?">
-                📍 Alamat & Kontak
+                📍 Alamat &amp; Kontak
+            </button>
+            <button class="chat-quick-btn" data-message="Jadwal kajian rutin di PUSDAI apa saja?">
+                📖 Jadwal Kajian
+            </button>
+            <button class="chat-quick-btn" data-message="Bagaimana cara menghitung zakat?">
+                🤲 Zakat
             </button>
         </div>
 
