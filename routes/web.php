@@ -6,6 +6,8 @@ use App\Http\Controllers\ChatAiController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
 use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementController;
+use App\Http\Controllers\Admin\ArticleController as AdminArticleController;
+use App\Http\Controllers\Admin\GalleryController as AdminGalleryController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 Route::get('/', [PusdaiController::class, 'beranda'])->name('beranda');
@@ -30,6 +32,10 @@ Route::get('/streaming', [PusdaiController::class, 'streaming'])->name('streamin
 Route::get('/academy', [PusdaiController::class, 'academy'])->name('academy');
 
 Route::get('/galeri', [PusdaiController::class, 'galeri'])->name('galeri');
+
+Route::get('/berita', [PusdaiController::class, 'berita'])->name('berita');
+
+Route::get('/berita/{slug}', [PusdaiController::class, 'beritaDetail'])->name('berita.detail');
 
 Route::get('/agenda', [PusdaiController::class, 'agenda'])->name('agenda');
 
@@ -59,6 +65,14 @@ Route::prefix('admin')->group(function () {
         Route::resource('agenda', AdminAgendaController::class)
             ->except(['show'])
             ->names('admin.agenda');
+        Route::resource('berita', AdminArticleController::class)
+            ->except(['show'])
+            ->parameters(['berita' => 'article'])
+            ->names('admin.article');
+        Route::resource('galeri', AdminGalleryController::class)
+            ->except(['show'])
+            ->parameters(['galeri' => 'gallery'])
+            ->names('admin.gallery');
         Route::resource('informasi', AdminAnnouncementController::class)
             ->except(['show'])
             ->parameters(['informasi' => 'announcement'])

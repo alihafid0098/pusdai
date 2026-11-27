@@ -11,7 +11,12 @@ class PusdaiController extends Controller
             ->take(3)
             ->get();
 
-        return view('beranda', compact('announcements'));
+        $beritaTerbaru = \App\Models\Article::terbit()
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
+        return view('beranda', compact('announcements', 'beritaTerbaru'));
     }
 
     public function sejarah()
@@ -51,7 +56,31 @@ class PusdaiController extends Controller
 
     public function galeri()
     {
-        return view('pages.galeri');
+        $galleries = \App\Models\Gallery::orderBy('urutan')->latest('id')->get();
+
+        return view('pages.galeri', compact('galleries'));
+    }
+
+    public function berita()
+    {
+        $artikel = \App\Models\Article::terbit()
+            ->latest('published_at')
+            ->paginate(9);
+
+        return view('pages.berita', compact('artikel'));
+    }
+
+    public function beritaDetail($slug)
+    {
+        $article = \App\Models\Article::terbit()->where('slug', $slug)->firstOrFail();
+
+        $lainnya = \App\Models\Article::terbit()
+            ->where('id', '!=', $article->id)
+            ->latest('published_at')
+            ->take(3)
+            ->get();
+
+        return view('pages.berita-detail', compact('article', 'lainnya'));
     }
 
     public function agenda()

@@ -84,6 +84,10 @@
             </li>
 
             <li>
+                <a href="{{ route('berita') }}">Berita</a>
+            </li>
+
+            <li>
                 <a href="{{ route('agenda') }}">Agenda</a>
             </li>
 
