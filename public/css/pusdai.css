@@ -6748,3 +6748,29 @@ section {
         padding: 24px 20px;
     }
 }
+
+/* KONTAK DI FOOTER */
+
+.contact-item p a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.contact-item p a:hover {
+    color: #86efac;
+}
+
+.site-footer .footer-map-link,
+.footer-map-link {
+    display: inline-block;
+    margin-top: 4px;
+    color: #4ade80;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.footer-map-link:hover {
+    color: #86efac;
+}
