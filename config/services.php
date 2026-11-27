@@ -37,6 +37,14 @@ return [
 
     'gemini' => [
         'api_key' => env('GEMINI_API_KEY'),
+        'model' => env('GEMINI_MODEL', 'gemini-2.0-flash'),
+    ],
+
+    'ai' => [
+        'provider' => env('AI_PROVIDER'),
+        'api_key' => env('AI_API_KEY'),
+        'base_url' => env('AI_BASE_URL', 'https://api.groq.com/openai/v1'),
+        'model' => env('AI_MODEL', 'llama-3.3-70b-versatile'),
     ],
 
     'youtube' => [

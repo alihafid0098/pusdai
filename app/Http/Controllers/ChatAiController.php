@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use App\Services\PusdaiAssistant;
 use Illuminate\Support\Facades\Log;
 
 class ChatAiController extends Controller
@@ -64,113 +65,190 @@ PROMPT;
     /**
      * Mengirim pesan ke AI dan mendapatkan balasan.
      */
-    public function chat(Request $request)
+    public function chat(Request $request, PusdaiAssistant $assistant)
     {
         $request->validate([
             'message' => 'required|string|max:1000',
             'history' => 'nullable|array|max:20',
-            'history.*.role' => 'required_with:history|string|in:user,model',
+            'history.*.role' => 'required_with:history|string|in:user,model,assistant',
             'history.*.text' => 'required_with:history|string|max:2000',
         ]);
 
-        $apiKey = config('services.gemini.api_key');
+        $message = (string) $request->input('message');
 
-        if (empty($apiKey)) {
-            return response()->json([
-                'success' => false,
-                'reply' => 'Maaf, layanan chat AI belum dikonfigurasi. Silakan hubungi administrator.',
-            ], 503);
-        }
+        $history = collect($request->input('history', []))
+            ->map(fn (array $item) => [
+                'role' => $item['role'],
+                'text' => (string) $item['text'],
+            ])
+            ->values()
+            ->all();
+
+        $provider = $this->resolveProvider();
+        $reply = null;
 
         try {
-            // Bangun array contents untuk Gemini API
-            $contents = [];
-
-            // Tambahkan riwayat percakapan jika ada
-            if ($request->has('history') && is_array($request->history)) {
-                foreach ($request->history as $msg) {
-                    $contents[] = [
-                        'role' => $msg['role'],
-                        'parts' => [['text' => $msg['text']]],
-                    ];
-                }
-            }
-
-            // Tambahkan pesan pengguna saat ini
-            $contents[] = [
-                'role' => 'user',
-                'parts' => [['text' => $request->message]],
-            ];
-
-            $response = Http::withHeaders([
-                'Content-Type' => 'application/json',
-            ])->timeout(30)->post(
-                "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={$apiKey}",
-                [
-                    'system_instruction' => [
-                        'parts' => [
-                            ['text' => $this->getSystemPrompt()],
-                        ],
-                    ],
-                    'contents' => $contents,
-                    'generationConfig' => [
-                        'temperature' => 0.7,
-                        'topP' => 0.95,
-                        'topK' => 40,
-                        'maxOutputTokens' => 800,
-                    ],
-                    'safetySettings' => [
-                        [
-                            'category' => 'HARM_CATEGORY_HARASSMENT',
-                            'threshold' => 'BLOCK_MEDIUM_AND_ABOVE',
-                        ],
-                        [
-                            'category' => 'HARM_CATEGORY_HATE_SPEECH',
-                            'threshold' => 'BLOCK_MEDIUM_AND_ABOVE',
-                        ],
-                        [
-                            'category' => 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
-                            'threshold' => 'BLOCK_MEDIUM_AND_ABOVE',
-                        ],
-                        [
-                            'category' => 'HARM_CATEGORY_DANGEROUS_CONTENT',
-                            'threshold' => 'BLOCK_MEDIUM_AND_ABOVE',
-                        ],
-                    ],
-                ]
-            );
-
-            if ($response->successful()) {
-                $data = $response->json();
-
-                $reply = $data['candidates'][0]['content']['parts'][0]['text']
-                    ?? 'Maaf, saya tidak dapat memproses permintaan Anda saat ini.';
-
-                return response()->json([
-                    'success' => true,
-                    'reply' => $reply,
-                ]);
-            }
-
-            Log::error('Gemini API Error', [
-                'status' => $response->status(),
-                'body' => \Illuminate\Support\Str::limit($response->body(), 300),
-            ]);
-
-            return response()->json([
-                'success' => false,
-                'reply' => 'Maaf, terjadi kendala dalam memproses permintaan Anda. Silakan coba lagi.',
-            ], 500);
-
-        } catch (\Exception $e) {
-            Log::error('Chat AI Exception', [
+            $reply = match ($provider) {
+                'gemini' => $this->askGemini($message, $history),
+                'openai' => $this->askOpenAiCompatible($message, $history),
+                default => null,
+            };
+        } catch (\Throwable $e) {
+            Log::warning('Chat AI provider gagal', [
+                'provider' => $provider,
                 'message' => preg_replace('/key=[^&\s]+/', 'key=***', $e->getMessage()),
             ]);
-
-            return response()->json([
-                'success' => false,
-                'reply' => 'Maaf, layanan sedang mengalami gangguan. Silakan coba beberapa saat lagi.',
-            ], 500);
+            $reply = null;
         }
+
+        $usedFallback = $reply === null;
+
+        if ($usedFallback) {
+            $reply = $assistant->answer($message, $history);
+        }
+
+        return response()->json([
+            'success' => true,
+            'reply' => $reply,
+            'source' => $usedFallback ? 'lokal' : $provider,
+        ]);
+    }
+
+    /**
+     * Provider aktif: AI_PROVIDER bila diisi, selain itu pilih otomatis
+     * dari kunci API yang tersedia, dan "local" bila tidak ada kunci.
+     */
+    private function resolveProvider(): string
+    {
+        $explicit = strtolower((string) config('services.ai.provider'));
+
+        if (in_array($explicit, ['gemini', 'openai', 'local'], true)) {
+            if ($explicit === 'gemini' && empty(config('services.gemini.api_key'))) {
+                return 'local';
+            }
+
+            if ($explicit === 'openai' && empty(config('services.ai.api_key'))) {
+                return 'local';
+            }
+
+            return $explicit;
+        }
+
+        if (! empty(config('services.gemini.api_key'))) {
+            return 'gemini';
+        }
+
+        if (! empty(config('services.ai.api_key'))) {
+            return 'openai';
+        }
+
+        return 'local';
+    }
+
+    /**
+     * @param  array<int, array{role: string, text: string}>  $history
+     */
+    private function askGemini(string $message, array $history): ?string
+    {
+        $apiKey = (string) config('services.gemini.api_key');
+
+        if ($apiKey === '') {
+            return null;
+        }
+
+        $contents = [];
+
+        foreach ($history as $item) {
+            $contents[] = [
+                'role' => $item['role'] === 'user' ? 'user' : 'model',
+                'parts' => [['text' => $item['text']]],
+            ];
+        }
+
+        $contents[] = [
+            'role' => 'user',
+            'parts' => [['text' => $message]],
+        ];
+
+        $model = (string) config('services.gemini.model', 'gemini-2.0-flash');
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+        ])->timeout(30)->post(
+            "https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}",
+            [
+                'system_instruction' => [
+                    'parts' => [['text' => $this->getSystemPrompt()]],
+                ],
+                'contents' => $contents,
+                'generationConfig' => [
+                    'temperature' => 0.7,
+                    'topP' => 0.95,
+                    'topK' => 40,
+                    'maxOutputTokens' => 800,
+                ],
+            ]
+        );
+
+        if (! $response->successful()) {
+            Log::warning('Gemini API Error', [
+                'status' => $response->status(),
+                'body' => \Illuminate\Support\Str::limit($response->body(), 200),
+            ]);
+
+            return null;
+        }
+
+        return $response->json('candidates.0.content.parts.0.text');
+    }
+
+    /**
+     * Provider apa pun yang kompatibel dengan endpoint /chat/completions
+     * (Groq, OpenRouter, Together, DeepSeek, OpenAI, dan sejenisnya).
+     *
+     * @param  array<int, array{role: string, text: string}>  $history
+     */
+    private function askOpenAiCompatible(string $message, array $history): ?string
+    {
+        $apiKey = (string) config('services.ai.api_key');
+        $baseUrl = rtrim((string) config('services.ai.base_url'), '/');
+
+        if ($apiKey === '' || $baseUrl === '') {
+            return null;
+        }
+
+        $messages = [
+            ['role' => 'system', 'content' => $this->getSystemPrompt()],
+        ];
+
+        foreach ($history as $item) {
+            $messages[] = [
+                'role' => $item['role'] === 'model' ? 'assistant' : $item['role'],
+                'content' => $item['text'],
+            ];
+        }
+
+        $messages[] = ['role' => 'user', 'content' => $message];
+
+        $response = Http::withToken($apiKey)
+            ->acceptJson()
+            ->timeout(30)
+            ->post($baseUrl.'/chat/completions', [
+                'model' => (string) config('services.ai.model'),
+                'messages' => $messages,
+                'temperature' => 0.7,
+                'max_tokens' => 800,
+            ]);
+
+        if (! $response->successful()) {
+            Log::warning('AI provider error', [
+                'status' => $response->status(),
+                'body' => \Illuminate\Support\Str::limit($response->body(), 200),
+            ]);
+
+            return null;
+        }
+
+        return $response->json('choices.0.message.content');
     }
 }

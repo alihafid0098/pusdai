@@ -50,6 +50,10 @@ paling sedikit pengaturan dan otomatis jalan.
   pindah ke MySQL bila trafik sudah ramai.
 - Ganti nomor hotline/formulir jenazah dan nomor WhatsApp di halaman
   Layanan Jenazah dengan nomor petugas yang benar.
+- Chat AI: tanpa kunci API, widget tetap menjawab dari data PUSDAI
+  (mode lokak). Untuk jawaban AI penuh, isi salah satu:
+  `AI_PROVIDER=openai` + `AI_API_KEY` (Groq/OpenRouter, ada paket gratis)
+  atau `AI_PROVIDER=gemini` + `GEMINI_API_KEY`.
 - Isi `YOUTUBE_LIVE_EMBED` (misal `https://www.youtube.com/embed/VIDEO_ID`)
   bila ingin siaran langsung tampil langsung di halaman Pusdai TV.
 - Kirim `sitemap.xml` ke Google Search Console agar halaman terindeks.
