@@ -36,7 +36,8 @@ paling sedikit pengaturan dan otomatis jalan.
 4. Deploy. Entrypoint otomatis menjalankan `migrate` saat container start.
 5. Isi data awal (admin + jadwal kajian) satu kali lewat terminal layanan:
    `php artisan db:seed --force`. Login panel di `/admin` dengan
-   `ADMIN_EMAIL` / `ADMIN_PASSWORD` dari environment.
+   `ADMIN_EMAIL` / `ADMIN_PASSWORD` dari environment
+   (default proyek: admin@pusdai.com / password1234 — ganti saat produksi).
 5. Buka domain yang diberikan. Untuk domain sendiri, tambahkan custom domain
    di panel lalu arahkan DNS.
 
