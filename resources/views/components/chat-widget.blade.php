@@ -21,7 +21,7 @@
 
 
 {{-- Chat Window --}}
-<div id="chat-window" class="chat-window chat-hidden">
+<div id="chat-window" class="chat-window chat-hidden" data-lenis-prevent>
 
     {{-- Header --}}
     <div class="chat-header">
@@ -61,7 +61,7 @@
 
 
     {{-- Chat Messages --}}
-    <div id="chat-messages" class="chat-messages">
+    <div id="chat-messages" class="chat-messages" data-lenis-prevent>
 
         {{-- Welcome Message --}}
         <div class="chat-message chat-bot">
@@ -127,7 +127,7 @@
         </form>
 
         <div class="chat-powered">
-            Powered by Gemini AI — PUSDAI Jawa Barat
+            Asisten PUSDAI — PUSDAI Jawa Barat
         </div>
 
     </div>
