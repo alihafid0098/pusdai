@@ -6360,3 +6360,25 @@ section {
     }
 
 }
+
+.jenazah-hotline-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.jenazah-wa {
+    text-align: center;
+    padding: 12px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    transition: .25s ease;
+}
+
+.jenazah-wa:hover {
+    background: rgba(255, 255, 255, 0.12);
+}

@@ -33,9 +33,20 @@
                 </p>
             </div>
 
-            <a href="tel:+62227217530" class="jenazah-call">
-                (022) 7217530 / 31
-            </a>
+            <div class="jenazah-hotline-actions">
+                <a href="tel:+6281234567890" class="jenazah-call">
+                    0812-3456-7890
+                </a>
+
+                <a
+                    href="https://wa.me/6281234567890?text={{ urlencode('Assalamualaikum, saya ingin mengajukan layanan pengurusan jenazah PUSDAI.') }}"
+                    class="jenazah-wa"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Hubungi via WhatsApp
+                </a>
+            </div>
         </div>
 
         <div class="jenazah-grid">
@@ -123,7 +134,7 @@
                 </button>
 
                 <p class="form-hint">
-                    Tombol ini membuka WhatsApp dengan pesan yang sudah terisi; tinggal pilih nomor petugas PUSDAI.
+                    Tombol ini membuka WhatsApp petugas siaga dengan pesan yang sudah terisi.
                 </p>
 
             </form>
@@ -156,7 +167,7 @@
             'Telepon: ' + telepon,
         ].join('\n');
 
-        window.open('https://wa.me/?text=' + encodeURIComponent(pesan), '_blank', 'noopener');
+        window.open('https://wa.me/6281234567890?text=' + encodeURIComponent(pesan), '_blank', 'noopener');
     });
 </script>
 @endpush
