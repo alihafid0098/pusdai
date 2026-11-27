@@ -1,0 +1,25 @@
+# Blueprint Render: New + -> Blueprint -> pilih repo ini -> Apply.
+services:
+  - type: web
+    name: pusdai
+    runtime: docker
+    plan: free
+    region: singapore
+    branch: main
+    healthCheckPath: /up
+    autoDeployTrigger: commit
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        value: "base64:2nMCtnlB1bTz39Ns9alss5ggHYx5DAlu0dO/ozz9mnM="
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: SESSION_SECURE_COOKIE
+        value: "true"
+      - key: ADMIN_EMAIL
+        value: admin@pusdai.com
+      - key: ADMIN_PASSWORD
+        value: password1234
