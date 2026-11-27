@@ -55,7 +55,7 @@
                     </p>
                     <a
                         class="btn btn-primary"
-                        href="https://www.youtube.com/@pusdaijabar/live"
+                        href="https://www.youtube.com/@PusdaiJabar/live"
                         target="_blank"
                         rel="noopener"
                     >
@@ -83,7 +83,7 @@
                     Belum ada berkas rekaman yang diunggah. Sementara itu,
                     semua rekaman bisa disimak di kanal YouTube resmi.
                 </p>
-                <a href="https://www.youtube.com/@pusdaijabar" target="_blank" rel="noopener">
+                <a href="https://www.youtube.com/@PusdaiJabar" target="_blank" rel="noopener">
                     Buka kanal YouTube →
                 </a>
             </div>
