@@ -1,21 +1,11 @@
 <header id="site-header" class="site-header">
     <div class="header-container">
 
-        {{-- LOGO --}}
-        <a href="{{ route('beranda') }}" class="header-logo group">
+        {{-- LOGO (Logo Pusdai Saja Tanpa Tulisan) --}}
+        <a href="{{ route('beranda') }}" class="header-logo group" title="PUSDAI Jawa Barat" style="display: flex; align-items: center;">
 
-            <div class="header-logo-box">
-                <span>P</span>
-            </div>
-
-            <div class="header-logo-text">
-                <div class="header-logo-title">
-                    PUSDAI Jabar
-                </div>
-
-                <div class="header-logo-subtitle">
-                    Pusat Dakwah Islam Jawa Barat
-                </div>
+            <div class="header-logo-box" style="background: transparent !important; box-shadow: none !important; width: auto; height: 50px; display: flex; align-items: center; justify-content: center;">
+                <img src="{{ asset('images/pusdai-icon.png') }}" alt="Logo PUSDAI Jawa Barat" style="height: 48px; width: auto; max-width: 160px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));">
             </div>
 
         </a>

@@ -8,7 +8,7 @@
 
 <section class="inner-hero">
 
-```
+
 <div class="inner-hero-overlay"></div>
 
 <div class="inner-hero-content">
@@ -25,7 +25,7 @@
     </p>
 
 </div>
-```
+
 
 </section>
 
@@ -33,7 +33,7 @@
 
 <section class="profile-section">
 
-```
+
 <div class="container">
 
     <div class="profile-intro">
@@ -108,7 +108,7 @@
     </div>
 
 </div>
-```
+
 
 </section>
 
@@ -116,7 +116,7 @@
 
 <section class="profile-commitment">
 
-```
+
 <div class="container">
 
     <div class="commitment-grid">
@@ -149,4 +149,4 @@
 
 
         <div class="commitment-list">
-```
+

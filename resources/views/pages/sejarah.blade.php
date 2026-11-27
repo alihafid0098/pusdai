@@ -8,7 +8,7 @@
 
 <section class="inner-hero">
 
-```
+
 <div class="inner-hero-overlay"></div>
 
 <div class="inner-hero-content">
@@ -25,7 +25,7 @@
     </p>
 
 </div>
-```
+
 
 </section>
 
@@ -33,7 +33,7 @@
 
 <section class="history-section">
 
-```
+
 <div class="container">
 
     <div class="history-grid">
@@ -41,7 +41,7 @@
         <div class="history-image">
 
             <img
-                src="https://images.pexels.com/photos/13249053/pexels-photo-13249053.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="{{ asset('images/arsitektur5.jpeg') }}"
                 alt="PUSDAI Jawa Barat"
             >
 
@@ -88,7 +88,7 @@
     </div>
 
 </div>
-```
+
 
 </section>
 
@@ -96,7 +96,7 @@
 
 <section class="history-values">
 
-```
+
 <div class="container">
 
     <div class="section-heading center">
@@ -164,7 +164,7 @@
     </div>
 
 </div>
-```
+
 
 </section>
 
@@ -172,7 +172,7 @@
 
 <section class="history-cta">
 
-```
+
 <div class="container">
 
     <div class="history-cta-box">
@@ -201,7 +201,7 @@
     </div>
 
 </div>
-```
+
 
 </section>
 

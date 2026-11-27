@@ -1,0 +1,129 @@
+/* =====================================================
+   LENIS & ANIMATIONS STYLING (GSAP + SCROLLTRIGGER + MOTION)
+   ===================================================== */
+
+/* Lenis Recommended CSS */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* Word reveal container */
+.split-word-container {
+    display: inline;
+    white-space: pre-wrap;
+    vertical-align: baseline;
+}
+
+.split-word {
+    display: inline-block;
+    vertical-align: baseline;
+    transform: translateY(115%);
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+/* Penyesuaian ukuran teks hero beranda agar proporsional dan elegan */
+.home-hero-content h1 {
+    font-size: 42px !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+    max-width: 580px;
+}
+
+.home-hero-content h1 span {
+    display: block;
+    color: #4ade80;
+    font-size: 38px !important;
+    margin-top: 4px;
+}
+
+/* Card Motion enhancement */
+.home-event-card,
+.home-news-card,
+.home-service-card,
+.agenda-card,
+.news-page-card,
+.donation-card,
+.service-page-card,
+.library-card,
+.contact-page-card,
+.gallery-item {
+    will-change: transform, opacity, box-shadow;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+}
+
+/* Hover effects with micro-interactions */
+.home-event-card:hover,
+.agenda-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 30px -10px rgba(22, 101, 52, 0.18) !important;
+}
+
+.home-news-card:hover,
+.news-page-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15) !important;
+}
+
+.home-service-card:hover,
+.service-page-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 22px 35px -10px rgba(13, 124, 61, 0.22) !important;
+}
+
+.donation-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 30px -10px rgba(234, 179, 8, 0.25) !important;
+}
+
+.gallery-item:hover {
+    transform: translateY(-6px) scale(1.015);
+}
+
+/* Social Media Icons Styling in Footer */
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.footer-social a:hover {
+    background: #16a34a;
+    border-color: #16a34a;
+    color: #ffffff;
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35);
+}
+
+.footer-social a svg {
+    transition: transform 0.2s ease;
+}
+
+.footer-social a:hover svg {
+    transform: scale(1.1);
+}
+

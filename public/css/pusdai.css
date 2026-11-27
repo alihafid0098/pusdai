@@ -4509,7 +4509,8 @@ body {
     background: #fefce8;
 }
 
-.home-donation-card {
+.home-donation-card,
+.home-donation-box {
     position: relative;
     overflow: hidden;
     background: linear-gradient(
@@ -4766,7 +4767,8 @@ body {
         margin-top: 20px;
     }
 
-    .home-donation-card {
+    .home-donation-card,
+    .home-donation-box {
         padding: 32px 24px;
     }
 
@@ -4884,28 +4886,17 @@ body {
 }
 
 .header-logo-box {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 12px;
-
-    background: linear-gradient(
-        135deg,
-        #15803d,
-        #14532d
-    );
-
-    color: white;
-
-    font-size: 18px;
-    font-weight: 700;
-
-    box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.10);
+    border-radius: 8px;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
 
     transition: transform 0.25s ease;
 }
@@ -5344,29 +5335,25 @@ body {
 }
 
 .header-logo-box {
-    width: 44px !important;
-    height: 44px !important;
+    width: 48px !important;
+    height: 48px !important;
 
-    min-width: 44px !important;
+    min-width: 48px !important;
 
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 
-    border-radius: 12px !important;
+    border-radius: 8px !important;
 
-    background: linear-gradient(
-        135deg,
-        #15803d,
-        #14532d
-    ) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
 
     color: #ffffff !important;
 
     font-size: 18px !important;
     font-weight: 700 !important;
-
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.12) !important;
 
     transition: transform 0.2s ease !important;
 }

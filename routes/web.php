@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PusdaiController;
+use App\Http\Controllers\ChatAiController;
 
 Route::get('/', [PusdaiController::class, 'beranda'])->name('beranda');
+
+// API Chat AI
+Route::post('/api/chat', [ChatAiController::class, 'chat'])->name('api.chat');
 
 Route::get('/sejarah', [PusdaiController::class, 'sejarah'])->name('sejarah');
 

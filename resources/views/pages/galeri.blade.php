@@ -8,7 +8,7 @@
 
 <section class="inner-hero">
 
-```
+
 <div class="inner-hero-overlay"></div>
 
 <div class="inner-hero-content">
@@ -25,7 +25,7 @@
     </p>
 
 </div>
-```
+
 
 </section>
 
@@ -33,7 +33,7 @@
 
 <section class="gallery-section">
 
-```
+
 <div class="container">
 
     <div class="section-heading center">
@@ -58,103 +58,151 @@
 
         <div class="gallery-item gallery-large">
             <img
-                src="https://images.pexels.com/photos/32119558/pexels-photo-32119558.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Masjid PUSDAI Jawa Barat"
+                src="{{ asset('images/arsitektur1.jpeg') }}"
+                alt="Arsitektur Utama Masjid PUSDAI Jawa Barat"
             >
 
             <div class="gallery-overlay">
-                <span>Masjid PUSDAI Jawa Barat</span>
+                <span>Arsitektur Utama Masjid PUSDAI</span>
             </div>
         </div>
 
 
         <div class="gallery-item">
             <img
-                src="https://images.pexels.com/photos/13249053/pexels-photo-13249053.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Kegiatan Keislaman"
+                src="{{ asset('images/galeri-mushaf.jpeg') }}"
+                alt="Mushaf Al-Qur'an Standar Pusdai"
             >
 
             <div class="gallery-overlay">
-                <span>Kegiatan Keislaman</span>
+                <span>Mushaf Al-Qur'an Pusdai Jabar</span>
             </div>
         </div>
 
 
         <div class="gallery-item">
             <img
-                src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Kajian Islam"
+                src="{{ asset('images/galeri-manasik.png') }}"
+                alt="Bimbingan Manasik Haji & Umrah"
             >
 
             <div class="gallery-overlay">
-                <span>Kajian Islam</span>
+                <span>Bimbingan Manasik Haji & Umrah</span>
             </div>
         </div>
 
 
         <div class="gallery-item">
             <img
-                src="https://images.pexels.com/photos/161439/islamic-mosque-religion-muslim-161439.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Masjid"
+                src="{{ asset('images/galeri-perpustakaan.jpeg') }}"
+                alt="Perpustakaan Digital PUSDAI"
             >
 
             <div class="gallery-overlay">
-                <span>Aktivitas Masjid</span>
+                <span>Perpustakaan Digital PUSDAI</span>
             </div>
         </div>
 
 
         <div class="gallery-item">
             <img
-                src="https://images.pexels.com/photos/4608024/pexels-photo-4608024.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Seminar Islam"
+                src="{{ asset('images/pengajian-assalam-di-masjid.jpeg') }}"
+                alt="Pengajian Majelis Assalam"
             >
 
             <div class="gallery-overlay">
-                <span>Seminar Islam</span>
+                <span>Kajian Rutin Majelis Assalam</span>
             </div>
         </div>
 
 
         <div class="gallery-item gallery-wide">
             <img
-                src="https://images.pexels.com/photos/3889858/pexels-photo-3889858.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Pendidikan Islam"
+                src="{{ asset('images/arsitektur2.jpeg') }}"
+                alt="Kemegahan Kawasan Masjid Pusdai"
             >
 
             <div class="gallery-overlay">
-                <span>Pendidikan Islam</span>
+                <span>Kemegahan Lanskap Masjid PUSDAI</span>
             </div>
         </div>
 
 
         <div class="gallery-item">
             <img
-                src="https://images.pexels.com/photos/6069534/pexels-photo-6069534.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Kegiatan Masyarakat"
+                src="{{ asset('images/khitan_massal1.jpeg') }}"
+                alt="Bakti Sosial Khitanan Massal"
             >
 
             <div class="gallery-overlay">
-                <span>Kegiatan Masyarakat</span>
+                <span>Bakti Sosial Khitanan Massal</span>
             </div>
         </div>
 
 
         <div class="gallery-item">
             <img
-                src="https://images.pexels.com/photos/8814825/pexels-photo-8814825.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Kegiatan Dakwah"
+                src="{{ asset('images/santunan_jompo2.jpeg') }}"
+                alt="Santunan Lansia & Dhuafa"
             >
 
             <div class="gallery-overlay">
-                <span>Kegiatan Dakwah</span>
+                <span>Santunan Pusdai Peduli Dhuafa</span>
+            </div>
+        </div>
+
+
+        <div class="gallery-item">
+            <img
+                src="{{ asset('images/pengajian-IPHI-masjid.jpeg') }}"
+                alt="Pengajian IPHI Jawa Barat"
+            >
+
+            <div class="gallery-overlay">
+                <span>Pengajian Akbar IPHI Jabar</span>
+            </div>
+        </div>
+
+
+        <div class="gallery-item">
+            <img
+                src="{{ asset('images/kunjungan-mushaf.jpeg') }}"
+                alt="Kunjungan & Edukasi Mushaf Pusdai"
+            >
+
+            <div class="gallery-overlay">
+                <span>Edukasi & Pameran Mushaf</span>
+            </div>
+        </div>
+
+
+        <div class="gallery-item">
+            <img
+                src="{{ asset('images/arsitektur3.jpeg') }}"
+                alt="Fasilitas & Koridor Masjid"
+            >
+
+            <div class="gallery-overlay">
+                <span>Fasilitas & Selasar Masjid</span>
+            </div>
+        </div>
+
+
+        <div class="gallery-item">
+            <img
+                src="{{ asset('images/pengajian_persistri.jpeg') }}"
+                alt="Kajian Persistri Jawa Barat"
+            >
+
+            <div class="gallery-overlay">
+                <span>Kajian Jama'ah Persistri</span>
             </div>
         </div>
 
     </div>
 
 </div>
-```
+
 
 </section>
 
@@ -162,7 +210,7 @@
 
 <section class="history-cta">
 
-```
+
 <div class="container">
 
     <div class="history-cta-box">
@@ -191,7 +239,7 @@
     </div>
 
 </div>
-```
+
 
 </section>
 

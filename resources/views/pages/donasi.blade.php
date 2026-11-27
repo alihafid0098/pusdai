@@ -7,7 +7,7 @@
 <section class="inner-hero">
     <div class="inner-hero-overlay"></div>
 
-```
+
 <div class="container inner-hero-content">
     <span class="hero-badge">PUSDAI CARE</span>
 
@@ -18,13 +18,13 @@
         bagi masyarakat melalui program PUSDAI Jawa Barat.
     </p>
 </div>
-```
+
 
 </section>
 
 <section class="donation-page-section">
 
-```
+
 <div class="container">
 
     <div class="section-heading center">
@@ -114,13 +114,13 @@
     </div>
 
 </div>
-```
+
 
 </section>
 
 <section class="donation-method-section">
 
-```
+
 <div class="container">
 
     <div class="donation-method-box">
@@ -204,13 +204,13 @@
     </div>
 
 </div>
-```
+
 
 </section>
 
 <section class="donation-contact-section">
 
-```
+
 <div class="container">
 
     <div class="donation-contact">
@@ -231,7 +231,7 @@
     </div>
 
 </div>
-```
+
 
 </section>
 

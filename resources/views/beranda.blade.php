@@ -13,8 +13,8 @@
     <div class="home-hero-background">
 
         <img
-            src="https://images.pexels.com/photos/32119558/pexels-photo-32119558.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Masjid Pusdai"
+            src="{{ asset('images/arsitektur1.jpeg') }}"
+            alt="Masjid Pusdai Jawa Barat"
         >
 
         <div class="home-hero-overlay"></div>
@@ -245,7 +245,7 @@
                 <div class="home-about-image-wrapper">
 
                     <img
-                        src="https://images.pexels.com/photos/13249053/pexels-photo-13249053.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                        src="{{ asset('images/galeri-arsitektur.jpeg') }}"
                         alt="Masjid Pusdai Jabar"
                     >
 
@@ -324,7 +324,7 @@
                 <div class="home-event-image">
 
                     <img
-                        src="https://images.pexels.com/photos/20594242/pexels-photo-20594242.jpeg?auto=compress&cs=tinysrgb&h=400"
+                        src="{{ asset('images/pengajian-assalam-di-masjid.jpeg') }}"
                         alt="Agenda PUSDAI"
                     >
 
@@ -377,7 +377,7 @@
                 <div class="home-event-image">
 
                     <img
-                        src="https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        src="{{ asset('images/pengajian-IPHI-masjid.jpeg') }}"
                         alt="Kegiatan PUSDAI"
                     >
 
@@ -430,8 +430,8 @@
                 <div class="home-event-image">
 
                     <img
-                        src="https://images.pexels.com/photos/4608024/pexels-photo-4608024.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Seminar Islam"
+                        src="{{ asset('images/khitan_massal.jpeg') }}"
+                        alt="Khitan Massal Pusdai"
                     >
 
                     <div class="home-event-date">
@@ -451,23 +451,23 @@
                 <div class="home-event-content">
 
                     <span class="home-event-category">
-                        SEMINAR
+                        SOSIAL
                     </span>
 
                     <h3>
-                        Seminar Keislaman
+                        Khitanan Massal PUSDAI
                     </h3>
 
                     <p>
-                        Seminar dan diskusi mengenai berbagai persoalan
-                        keislaman dan kehidupan masyarakat.
+                        Program bakti sosial pelayanan kesehatan dan
+                        khitanan massal untuk anak-anak Jawa Barat.
                     </p>
 
                     <div class="home-event-time">
 
                         <i data-lucide="calendar-days"></i>
 
-                        13.00 - 15.00 WIB
+                        08.00 - 12.00 WIB
 
                     </div>
 
@@ -483,7 +483,7 @@
                 <div class="home-event-image">
 
                     <img
-                        src="https://images.pexels.com/photos/161439/islamic-mosque-religion-muslim-161439.jpeg?auto=compress&cs=tinysrgb&w=800"
+                        src="{{ asset('images/pengajian_persistri.jpeg') }}"
                         alt="Kajian PUSDAI"
                     >
 
@@ -580,34 +580,34 @@
             @php
                 $homeNews = [
                     [
-                        'image' => 'https://images.pexels.com/photos/724921/pexels-photo-724921.jpeg?auto=compress&cs=tinysrgb&w=800',
-                        'category' => 'KEGIATAN',
-                        'title' => 'PUSDAI Jawa Barat Terus Mengembangkan Kegiatan Dakwah',
-                        'excerpt' => 'Berbagai kegiatan dakwah dan pembinaan umat terus dikembangkan untuk memberikan pelayanan terbaik kepada masyarakat.',
+                        'image' => asset('images/manasik.png'),
+                        'category' => 'LAYANAN',
+                        'title' => 'Bimbingan Manasik Haji & Umrah PUSDAI Jawa Barat',
+                        'excerpt' => 'Pelaksanaan bimbingan manasik haji dan umrah secara profesional dan terarah sesuai tuntunan syariat Islam.',
                         'date' => '07 Oktober 2026',
                         'slug' => 'kegiatan-keislaman-pusdai-jawa-barat'
                     ],
                     [
-                        'image' => 'https://images.pexels.com/photos/6069534/pexels-photo-6069534.jpeg?auto=compress&cs=tinysrgb&w=800',
+                        'image' => asset('images/galeri-mushaf.jpeg'),
                         'category' => 'INFORMASI',
-                        'title' => 'Layanan Keagamaan untuk Masyarakat',
-                        'excerpt' => 'PUSDAI menyediakan berbagai layanan keagamaan yang dapat dimanfaatkan oleh masyarakat.',
+                        'title' => 'Mushaf Al-Qur\'an Standar PUSDAI Jawa Barat',
+                        'excerpt' => 'Mengenal keistimewaan dan nilai sejarah Mushaf Al-Qur\'an kebanggaan umat Islam Jawa Barat di Pusdai.',
                         'date' => '05 Oktober 2026',
                         'slug' => 'informasi-pelayanan-pusdai'
                     ],
                     [
-                        'image' => 'https://images.pexels.com/photos/3889858/pexels-photo-3889858.jpeg?auto=compress&cs=tinysrgb&w=800',
-                        'category' => 'PENDIDIKAN',
-                        'title' => 'Pendidikan dan Pembinaan Generasi Muslim',
-                        'excerpt' => 'Komitmen PUSDAI dalam mendukung pendidikan dan pembinaan generasi muslim Jawa Barat.',
+                        'image' => asset('images/santunan_jompo.jpeg'),
+                        'category' => 'SOSIAL',
+                        'title' => 'Program Santunan Lansia & Dhuafa Pusdai Care',
+                        'excerpt' => 'Komitmen PUSDAI dalam mendukung kepedulian sosial kemasyarakatan dan pelayanan terbaik bagi dhuafa.',
                         'date' => '01 Oktober 2026',
                         'slug' => 'semangat-dakwah-masyarakat'
                     ],
                     [
-                        'image' => 'https://images.pexels.com/photos/13249053/pexels-photo-13249053.jpeg?auto=compress&cs=tinysrgb&w=800',
-                        'category' => 'KEGIATAN',
-                        'title' => 'Kajian Islam dan Pembinaan Umat',
-                        'excerpt' => 'Kegiatan kajian dan pembinaan umat terus dilakukan sebagai bagian dari pelayanan PUSDAI.',
+                        'image' => asset('images/perpustakaan2.jpeg'),
+                        'category' => 'PENDIDIKAN',
+                        'title' => 'Perpustakaan Digital dan Literasi Islam PUSDAI',
+                        'excerpt' => 'Pusat literasi keilmuan Islam, koleksi kitab kuning, dan ruang belajar nyaman untuk para generasi muslim.',
                         'date' => '28 September 2026',
                         'slug' => 'kajian-islam-dan-pembinaan-umat'
                     ]
