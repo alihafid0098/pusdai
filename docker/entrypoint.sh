@@ -40,7 +40,7 @@ php artisan config:clear
 php artisan migrate --force
 
 # Seed initial data only if admin user does not exist
-if ! php artisan tinker --execute='exit(\App\Models\User::query()->exists() ? 0 : 1);' >/dev/null 2>&1; then
+if ! php artisan tinker --execute='exit(\App\Models\User::where("email", env("ADMIN_EMAIL", "admin@pusdai.com"))->exists() ? 0 : 1);' >/dev/null 2>&1; then
     php artisan db:seed --force
 fi
 
