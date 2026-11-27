@@ -42,7 +42,7 @@
                 <h1>
                     Masjid Raya Pusat Dakwah Islam
 
-                    <span>
+                    <span class="hero-title-accent">
                         Jawa Barat
                     </span>
                 </h1>
