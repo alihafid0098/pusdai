@@ -6774,3 +6774,57 @@ section {
 .footer-map-link:hover {
     color: #86efac;
 }
+
+/* AGENDA: KEGIATAN & PESAN KOSONG */
+
+.agenda-events-section {
+    padding: 90px 0 100px;
+    background: #ffffff;
+}
+
+.agenda-empty {
+    text-align: center;
+    color: #6b7280;
+    background: #f9fafb;
+    border: 1px dashed #d1d5db;
+    border-radius: 14px;
+    padding: 26px;
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+/* BANNER INFORMASI BERANDA */
+
+.home-announcements {
+    background: #052e16;
+    color: #ffffff;
+    padding: 14px 0;
+}
+
+.home-announcements-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 26px;
+    align-items: center;
+}
+
+.home-announcement-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.home-announcement-item strong {
+    color: #86efac;
+}
+
+.home-announcement-item a {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: 600;
+}

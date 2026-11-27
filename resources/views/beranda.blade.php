@@ -4,6 +4,20 @@
 
 @section('content')
 
+@if (isset($announcements) && $announcements->isNotEmpty())
+    <div class="home-announcements">
+        <div class="home-announcements-inner">
+            @foreach ($announcements as $info)
+                <div class="home-announcement-item">
+                    <strong>{{ $info->judul }}</strong>
+                    <span>{{ \Illuminate\Support\Str::limit($info->isi, 120) }}</span>
+                </div>
+            @endforeach
+        </div>
+    </div>
+@endif
+
+
 {{-- =====================================================
     HERO SECTION
 ===================================================== --}}
