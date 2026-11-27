@@ -54,3 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setInterval(updatePrayerTime, 1000);
 });
+
+
+/* =====================================================
+   LUCIDE ICONS
+   Mengganti seluruh <i data-lucide="..."> menjadi SVG.
+   Sebelumnya skrip Lucide dimuat tetapi createIcons() tidak
+   pernah dipanggil, sehingga semua ikon di situs kosong.
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.lucide && typeof window.lucide.createIcons === "function") {
+    window.lucide.createIcons();
+  }
+});

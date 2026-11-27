@@ -1584,6 +1584,303 @@ body {
 
 }
 /* =========================================
+   PROFIL & STRUKTUR DKM (REDESIGN)
+========================================= */
+
+.dkm-section {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.dkm-bidang {
+    padding: 100px 0;
+    background: #f0fdf4;
+}
+
+.dkm-tupoksi {
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.dkm-intro {
+    max-width: 800px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.dkm-intro-left {
+    margin-left: 0;
+    text-align: left;
+}
+
+.dkm-intro h2 {
+    color: #14532d;
+    font-size: 40px;
+    line-height: 1.25;
+    margin: 12px 0 22px;
+}
+
+.dkm-intro p {
+    color: #6b7280;
+    line-height: 1.8;
+}
+
+/* GRID KARTU PENGURUS */
+
+.dkm-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.dkm-card {
+    padding: 32px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: #ffffff;
+    transition: .25s ease;
+}
+
+.dkm-card:hover {
+    border-color: #86efac;
+    box-shadow: 0 12px 35px rgba(0,0,0,.06);
+}
+
+.dkm-card-wide {
+    grid-column: 1 / -1;
+}
+
+.dkm-card h3 {
+    color: #14532d;
+    font-size: 20px;
+    margin: 0 0 22px;
+}
+
+.dkm-subgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.dkm-subcard h4 {
+    color: #15803d;
+    font-size: 14px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    margin: 0 0 12px;
+}
+
+.dkm-role {
+    color: #9ca3af;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin: 0 0 4px;
+}
+
+.dkm-role + .dkm-name {
+    margin-top: 0;
+}
+
+.dkm-name {
+    color: #111827;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0 0 18px;
+}
+
+.dkm-desc {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.dkm-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dkm-list li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.dkm-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #86efac;
+}
+
+/* BIDANG KERJA */
+
+.dkm-bidang-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.dkm-bidang-card {
+    position: relative;
+    padding: 34px 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #dcfce7;
+    box-shadow: 0 8px 30px rgba(20, 83, 45, .05);
+    transition: .25s ease;
+}
+
+.dkm-bidang-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(20, 83, 45, .10);
+}
+
+.dkm-bidang-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 10px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #15803d;
+    font-weight: 800;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.dkm-bidang-card h3 {
+    color: #14532d;
+    font-size: 22px;
+    margin: 0 0 20px;
+}
+
+.dkm-list-anggotas {
+    margin-top: 6px;
+}
+
+/* TUPOKSI ACCORDION */
+
+.dkm-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.dkm-acc-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.dkm-acc-item[open] {
+    border-color: #86efac;
+    box-shadow: 0 10px 30px rgba(20, 83, 45, .06);
+}
+
+.dkm-acc-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    cursor: pointer;
+    color: #14532d;
+    font-weight: 700;
+    list-style: none;
+}
+
+.dkm-acc-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.dkm-acc-item summary::after {
+    content: "";
+    flex: 0 0 auto;
+    width: 9px;
+    height: 9px;
+    margin-right: 4px;
+    border-right: 2px solid #16a34a;
+    border-bottom: 2px solid #16a34a;
+    transform: rotate(45deg);
+    transition: transform .25s ease;
+}
+
+.dkm-acc-item[open] summary::after {
+    transform: rotate(225deg);
+}
+
+.dkm-acc-body {
+    padding: 0 24px 26px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.dkm-acc-body h4 {
+    color: #15803d;
+    font-size: 13px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    margin: 22px 0 8px;
+}
+
+.dkm-acc-body p {
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.75;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+
+    .dkm-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dkm-subgrid {
+        grid-template-columns: 1fr;
+    }
+
+    .dkm-bidang-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .dkm-section,
+    .dkm-bidang,
+    .dkm-tupoksi {
+        padding: 70px 0;
+    }
+
+    .dkm-intro h2 {
+        font-size: 32px;
+    }
+
+    .dkm-card,
+    .dkm-bidang-card {
+        padding: 26px 22px;
+    }
+
+}
+
+/* =========================================
    GALERI
 ========================================= */
 

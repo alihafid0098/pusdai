@@ -81,15 +81,6 @@
             </div>
 
 
-            {{-- BERITA --}}
-            <a
-                href="{{ route('berita') }}"
-                class="nav-link {{ request()->routeIs('berita*') ? 'active' : '' }}"
-            >
-                Berita
-            </a>
-
-
             {{-- AGENDA --}}
             <a
                 href="{{ route('agenda') }}"
@@ -205,13 +196,6 @@
 
         </div>
 
-
-        <a
-            href="{{ route('berita') }}"
-            class="mobile-nav-link"
-        >
-            Berita
-        </a>
 
         <a
             href="{{ route('agenda') }}"
