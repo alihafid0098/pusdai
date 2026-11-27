@@ -34,6 +34,9 @@ paling sedikit pengaturan dan otomatis jalan.
    ```
 
 4. Deploy. Entrypoint otomatis menjalankan `migrate` saat container start.
+5. Isi data awal (admin + jadwal kajian) satu kali lewat terminal layanan:
+   `php artisan db:seed --force`. Login panel di `/admin` dengan
+   `ADMIN_EMAIL` / `ADMIN_PASSWORD` dari environment.
 5. Buka domain yang diberikan. Untuk domain sendiri, tambahkan custom domain
    di panel lalu arahkan DNS.
 
@@ -57,3 +60,5 @@ paling sedikit pengaturan dan otomatis jalan.
 - Isi `YOUTUBE_LIVE_EMBED` (misal `https://www.youtube.com/embed/VIDEO_ID`)
   bila ingin siaran langsung tampil langsung di halaman Pusdai TV.
 - Kirim `sitemap.xml` ke Google Search Console agar halaman terindeks.
+- Ganti `ADMIN_PASSWORD` sebelum situs dibuka ke publik, lalu login ke
+  `/admin` untuk menambah agenda dan informasi beranda.

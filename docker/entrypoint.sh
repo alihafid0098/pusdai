@@ -16,4 +16,9 @@ php artisan view:cache || true
 touch database/database.sqlite
 php artisan migrate --force || true
 
+# Isi data awal (admin + jadwal kajian) hanya saat database masih kosong
+if ! php artisan tinker --execute='exit(\App\Models\User::exists() ? 1 : 0);' >/dev/null 2>&1; then
+    php artisan db:seed --force || true
+fi
+
 exec "$@"

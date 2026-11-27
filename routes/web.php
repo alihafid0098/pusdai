@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PusdaiController;
 use App\Http\Controllers\ChatAiController;
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\AgendaController as AdminAgendaController;
+use App\Http\Controllers\Admin\AnnouncementController as AdminAnnouncementController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
 Route::get('/', [PusdaiController::class, 'beranda'])->name('beranda');
 
@@ -40,3 +44,24 @@ Route::get('/faraid', [PusdaiController::class, 'faraid'])->name('faraid');
 Route::get('/perpustakaan', [PusdaiController::class, 'perpustakaan'])->name('perpustakaan');
 
 Route::get('/sitemap.xml', [PusdaiController::class, 'sitemap'])->name('sitemap');
+
+
+// ADMIN
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('admin.login');
+    Route::post('/login', [AdminAuthController::class, 'login'])
+        ->middleware('throttle:6,1')
+        ->name('admin.login.store');
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+        Route::resource('agenda', AdminAgendaController::class)
+            ->except(['show'])
+            ->names('admin.agenda');
+        Route::resource('informasi', AdminAnnouncementController::class)
+            ->except(['show'])
+            ->parameters(['informasi' => 'announcement'])
+            ->names('admin.announcement');
+    });
+});

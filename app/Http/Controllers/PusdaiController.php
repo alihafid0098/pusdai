@@ -6,7 +6,12 @@ class PusdaiController extends Controller
 {
     public function beranda()
     {
-        return view('beranda');
+        $announcements = \App\Models\Announcement::where('is_active', true)
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('beranda', compact('announcements'));
     }
 
     public function sejarah()
@@ -51,7 +56,21 @@ class PusdaiController extends Controller
 
     public function agenda()
     {
-        return view('pages.agenda');
+        $urutanHari = ['Senin', 'Selasa', 'Rabu', 'Kamis', "Jum'at", 'Sabtu', 'Ahad'];
+
+        $kajianRutin = \App\Models\Agenda::rutin()
+            ->terbit()
+            ->get()
+            ->sortBy(fn ($item) => array_search($item->hari, $urutanHari, true) === false ? 99 : array_search($item->hari, $urutanHari, true))
+            ->values();
+
+        $kegiatan = \App\Models\Agenda::kegiatan()
+            ->terbit()
+            ->orderByRaw('tanggal IS NULL')
+            ->orderBy('tanggal')
+            ->get();
+
+        return view('pages.agenda', compact('kajianRutin', 'kegiatan'));
     }
 
     public function donasi()
