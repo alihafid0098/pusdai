@@ -114,7 +114,7 @@
             </article>
 
             <article class="jadwal-card">
-                <span class="jadwal-hari">Rabu</span>
+                <span class="jadwal-hari">Kamis</span>
                 <h3>Fiqih Ibadah</h3>
                 <p class="jadwal-ustadz">Ust. Ramdan Fauzi</p>
                 <ul>
