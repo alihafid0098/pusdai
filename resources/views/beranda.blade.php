@@ -549,6 +549,45 @@
 </section>
 
 
+@if (isset($beritaTerbaru) && $beritaTerbaru->isNotEmpty())
+<section class="news-section home-news-section">
+    <div class="container">
+
+        <div class="section-heading center">
+            <span class="section-label">BERITA TERBARU</span>
+            <h2>Kabar dari PUSDAI</h2>
+            <p>Kegiatan, kajian, dan program terbaru PUSDAI Jawa Barat.</p>
+        </div>
+
+        <div class="news-grid">
+            @foreach ($beritaTerbaru as $item)
+                <a href="{{ route('berita.detail', $item->slug) }}" class="news-page-card">
+                    <div class="news-page-image">
+                        @if ($item->gambar)
+                            <img src="{{ $item->gambar_url }}" alt="{{ $item->judul }}">
+                        @else
+                            <span class="news-no-image">PUSDAI</span>
+                        @endif
+                    </div>
+
+                    <div class="news-page-content">
+                        <span class="news-page-category">{{ $item->kategori }}</span>
+                        <h3>{{ $item->judul }}</h3>
+                        <p>{{ $item->ringkasan ?: \Illuminate\Support\Str::limit(strip_tags($item->isi), 110) }}</p>
+                        <span class="news-page-date">{{ $item->published_at?->translatedFormat('d F Y') }}</span>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+        <div class="home-news-more">
+            <a href="{{ route('berita') }}" class="btn btn-primary">Lihat Semua Berita</a>
+        </div>
+
+    </div>
+</section>
+@endif
+
 {{-- =====================================================
     SERVICES SECTION
 ===================================================== --}}

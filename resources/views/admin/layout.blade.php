@@ -27,6 +27,12 @@
             <a href="{{ route('admin.agenda.index') }}" class="{{ request()->routeIs('admin.agenda.*') ? 'active' : '' }}">
                 Agenda &amp; Kajian
             </a>
+            <a href="{{ route('admin.article.index') }}" class="{{ request()->routeIs('admin.article.*') ? 'active' : '' }}">
+                Berita &amp; Artikel
+            </a>
+            <a href="{{ route('admin.gallery.index') }}" class="{{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
+                Galeri Foto
+            </a>
             <a href="{{ route('admin.announcement.index') }}" class="{{ request()->routeIs('admin.announcement.*') ? 'active' : '' }}">
                 Informasi Beranda
             </a>
