@@ -160,8 +160,46 @@
                         jenazah sesuai dengan tuntunan syariat Islam.
                     </p>
 
-                    <a href="{{ route('kontak') }}">
-                        Hubungi Kami →
+                    <a href="{{ route('layanan.jenazah') }}">
+                        Layanan Jenazah →
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-page-card">
+                <div class="service-page-icon">
+                    🏛️
+                </div>
+
+                <div class="service-page-content">
+                    <h3>Penggunaan Fasilitas</h3>
+
+                    <p>
+                        Ruang utama, multimedia, seminar, dan plaza yang bisa
+                        digunakan untuk kegiatan syiar dan keumatan.
+                    </p>
+
+                    <a href="{{ route('layanan.sewa') }}">
+                        Lihat Fasilitas →
+                    </a>
+                </div>
+            </div>
+
+            <div class="service-page-card">
+                <div class="service-page-icon">
+                    🎥
+                </div>
+
+                <div class="service-page-content">
+                    <h3>Pusdai TV &amp; Podcast</h3>
+
+                    <p>
+                        Siaran langsung kajian dan rekaman tausiyah asatidzah
+                        PUSDAI Jawa Barat.
+                    </p>
+
+                    <a href="{{ route('streaming') }}">
+                        Tonton →
                     </a>
                 </div>
             </div>

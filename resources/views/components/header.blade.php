@@ -68,6 +68,22 @@
                         Konsultasi Syariah
                     </a>
 
+                    <a href="{{ route('layanan.sewa') }}" class="dropdown-link">
+                        Penggunaan Fasilitas
+                    </a>
+
+                    <a href="{{ route('layanan.jenazah') }}" class="dropdown-link">
+                        Layanan Jenazah
+                    </a>
+
+                    <a href="{{ route('streaming') }}" class="dropdown-link">
+                        Pusdai TV (Streaming)
+                    </a>
+
+                    <a href="{{ route('academy') }}" class="dropdown-link">
+                        Pusdai Academy
+                    </a>
+
                     <a href="{{ route('perpustakaan') }}" class="dropdown-link">
                         Perpustakaan Digital
                     </a>
@@ -192,9 +208,32 @@
                     Kalkulator Faraid
                 </a>
 
+                <a href="{{ route('layanan.sewa') }}">
+                    Penggunaan Fasilitas
+                </a>
+
+                <a href="{{ route('layanan.jenazah') }}">
+                    Layanan Jenazah
+                </a>
+
             </div>
 
         </div>
+
+
+        <a
+            href="{{ route('streaming') }}"
+            class="mobile-nav-link"
+        >
+            Pusdai TV
+        </a>
+
+        <a
+            href="{{ route('academy') }}"
+            class="mobile-nav-link"
+        >
+            Pusdai Academy
+        </a>
 
 
         <a

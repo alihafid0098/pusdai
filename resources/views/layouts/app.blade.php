@@ -45,5 +45,7 @@
     <script src="{{ asset('js/pusdai.js') }}"></script>
     <script src="{{ asset('js/animations.js') }}"></script>
 
+    @stack('scripts')
+
 </body>
 </html>

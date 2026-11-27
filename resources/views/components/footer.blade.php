@@ -87,6 +87,14 @@
             </li>
 
             <li>
+                <a href="{{ route('streaming') }}">Pusdai TV</a>
+            </li>
+
+            <li>
+                <a href="{{ route('academy') }}">Pusdai Academy</a>
+            </li>
+
+            <li>
                 <a href="{{ route('kontak') }}">Kontak</a>
             </li>
         </ul>

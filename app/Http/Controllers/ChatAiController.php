@@ -154,7 +154,7 @@ PROMPT;
 
             Log::error('Gemini API Error', [
                 'status' => $response->status(),
-                'body' => $response->body(),
+                'body' => \Illuminate\Support\Str::limit($response->body(), 300),
             ]);
 
             return response()->json([
@@ -164,7 +164,7 @@ PROMPT;
 
         } catch (\Exception $e) {
             Log::error('Chat AI Exception', [
-                'message' => $e->getMessage(),
+                'message' => preg_replace('/key=[^&\s]+/', 'key=***', $e->getMessage()),
             ]);
 
             return response()->json([

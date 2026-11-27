@@ -7,13 +7,23 @@ use App\Http\Controllers\ChatAiController;
 Route::get('/', [PusdaiController::class, 'beranda'])->name('beranda');
 
 // API Chat AI
-Route::post('/api/chat', [ChatAiController::class, 'chat'])->name('api.chat');
+Route::post('/api/chat', [ChatAiController::class, 'chat'])
+    ->middleware('throttle:20,1')
+    ->name('api.chat');
 
 Route::get('/sejarah', [PusdaiController::class, 'sejarah'])->name('sejarah');
 
 Route::get('/profil', [PusdaiController::class, 'profil'])->name('profil');
 
 Route::get('/layanan', [PusdaiController::class, 'layanan'])->name('layanan');
+
+Route::get('/layanan/sewa', [PusdaiController::class, 'sewa'])->name('layanan.sewa');
+
+Route::get('/layanan/jenazah', [PusdaiController::class, 'jenazah'])->name('layanan.jenazah');
+
+Route::get('/streaming', [PusdaiController::class, 'streaming'])->name('streaming');
+
+Route::get('/academy', [PusdaiController::class, 'academy'])->name('academy');
 
 Route::get('/galeri', [PusdaiController::class, 'galeri'])->name('galeri');
 
@@ -28,3 +38,5 @@ Route::get('/konsultasi', [PusdaiController::class, 'konsultasi'])->name('konsul
 Route::get('/faraid', [PusdaiController::class, 'faraid'])->name('faraid');
 
 Route::get('/perpustakaan', [PusdaiController::class, 'perpustakaan'])->name('perpustakaan');
+
+Route::get('/sitemap.xml', [PusdaiController::class, 'sitemap'])->name('sitemap');
