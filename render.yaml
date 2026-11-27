@@ -14,7 +14,7 @@ services:
       - key: APP_DEBUG
         value: "false"
       - key: APP_KEY
-        value: "base64:2nMCtnlB1bTz39Ns9alss5ggHYx5DAlu0dO/ozz9mnM="
+        sync: false
       - key: DB_CONNECTION
         value: sqlite
       - key: SESSION_SECURE_COOKIE
@@ -22,4 +22,4 @@ services:
       - key: ADMIN_EMAIL
         value: admin@pusdai.com
       - key: ADMIN_PASSWORD
-        value: password1234
+        sync: false
