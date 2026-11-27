@@ -24,6 +24,26 @@ class PusdaiController extends Controller
         return view('pages.layanan');
     }
 
+    public function sewa()
+    {
+        return view('pages.sewa');
+    }
+
+    public function jenazah()
+    {
+        return view('pages.jenazah');
+    }
+
+    public function streaming()
+    {
+        return view('pages.streaming');
+    }
+
+    public function academy()
+    {
+        return view('pages.academy');
+    }
+
     public function galeri()
     {
         return view('pages.galeri');
@@ -52,6 +72,36 @@ class PusdaiController extends Controller
     public function faraid()
     {
         return view('pages.faraid');
+    }
+
+    public function sitemap()
+    {
+        $routes = [
+            'beranda',
+            'sejarah',
+            'profil',
+            'layanan',
+            'layanan.sewa',
+            'layanan.jenazah',
+            'streaming',
+            'academy',
+            'galeri',
+            'agenda',
+            'donasi',
+            'kontak',
+            'konsultasi',
+            'faraid',
+            'perpustakaan',
+        ];
+
+        $urls = collect($routes)->map(fn ($name) => [
+            'loc' => route($name),
+            'lastmod' => now()->toDateString(),
+        ]);
+
+        return response()
+            ->view('sitemap', ['urls' => $urls])
+            ->header('Content-Type', 'application/xml');
     }
 
     public function perpustakaan()

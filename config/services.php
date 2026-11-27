@@ -39,4 +39,8 @@ return [
         'api_key' => env('GEMINI_API_KEY'),
     ],
 
+    'youtube' => [
+        'live_embed' => env('YOUTUBE_LIVE_EMBED'),
+    ],
+
 ];
