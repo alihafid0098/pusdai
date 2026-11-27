@@ -6519,3 +6519,232 @@ section {
         font-size: 28px;
     }
 }
+
+/* =========================================
+   DONASI: KALKULATOR ZAKAT & FORMULIR
+========================================= */
+
+.donasi-tools-section {
+    padding: 90px 0 40px;
+    background: #ffffff;
+}
+
+.donasi-tools-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.zakat-card,
+.donasi-form-card {
+    padding: 32px;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 10px 35px rgba(20, 83, 45, .05);
+}
+
+.zakat-head {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.zakat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    border-radius: 12px;
+    background: #dcfce7;
+    font-size: 22px;
+}
+
+.zakat-head h2,
+.donasi-form-card h2 {
+    color: #14532d;
+    font-size: 24px;
+    margin: 0 0 6px;
+}
+
+.zakat-head p,
+.donasi-form-lead {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.donasi-form-lead {
+    margin-bottom: 22px;
+}
+
+.zakat-tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.zakat-tab {
+    border: 0;
+    background: none;
+    padding: 10px 4px;
+    margin-right: 18px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    color: #9ca3af;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.zakat-tab.active {
+    color: #15803d;
+    border-bottom-color: #16a34a;
+}
+
+.zakat-panel {
+    display: none;
+}
+
+.zakat-panel.active {
+    display: block;
+}
+
+.zakat-panel label,
+.donasi-form-card .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #14532d;
+    margin-bottom: 6px;
+}
+
+.zakat-panel input,
+.donasi-form-card input,
+.donasi-form-card select,
+.donasi-form-card textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #111827;
+    background: #ffffff;
+}
+
+.zakat-panel input:focus,
+.donasi-form-card input:focus,
+.donasi-form-card select:focus,
+.donasi-form-card textarea:focus {
+    outline: 2px solid #86efac;
+    border-color: #16a34a;
+}
+
+.zakat-note {
+    font-size: 12px;
+    color: #9ca3af;
+    margin: 8px 0 18px;
+    line-height: 1.6;
+}
+
+.zakat-result {
+    padding: 20px 22px;
+    border-radius: 14px;
+    background: #f9fafb;
+    border: 1px dashed #d1d5db;
+}
+
+.zakat-result.terpenuhi {
+    background: #f0fdf4;
+    border-color: #86efac;
+}
+
+.zakat-status {
+    display: block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    color: #9ca3af;
+    margin-bottom: 6px;
+}
+
+.zakat-result.terpenuhi .zakat-status {
+    color: #15803d;
+}
+
+.zakat-result strong {
+    display: block;
+    font-size: 28px;
+    color: #14532d;
+    line-height: 1.2;
+    margin-bottom: 6px;
+}
+
+.zakat-result p {
+    margin: 0;
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.zakat-disclaimer {
+    margin: 16px 0 0;
+    font-size: 12px;
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+.donasi-form-card .form-group {
+    margin-bottom: 14px;
+}
+
+.donasi-submit {
+    width: 100%;
+    margin-top: 6px;
+}
+
+.donasi-summary {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 14px;
+    background: #f0fdf4;
+    border: 1px solid #dcfce7;
+}
+
+.donasi-summary strong {
+    color: #14532d;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.donasi-summary p {
+    margin: 0 0 14px;
+    color: #4b5563;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.donasi-summary-note {
+    font-size: 12px !important;
+    color: #9ca3af !important;
+    margin: 12px 0 0 !important;
+}
+
+@media (max-width: 900px) {
+    .donasi-tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .zakat-card,
+    .donasi-form-card {
+        padding: 24px 20px;
+    }
+}
