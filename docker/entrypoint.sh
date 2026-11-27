@@ -5,6 +5,11 @@ if [ ! -f .env ]; then
     cp .env.example .env
 fi
 
+# Di Render, alamat publik tersedia lewat RENDER_EXTERNAL_URL.
+if [ -z "$APP_URL" ] && [ -n "$RENDER_EXTERNAL_URL" ]; then
+    export APP_URL="$RENDER_EXTERNAL_URL"
+fi
+
 if [ -z "$APP_KEY" ]; then
     php artisan key:generate --force
 fi
