@@ -17,11 +17,6 @@ Route::get('/layanan', [PusdaiController::class, 'layanan'])->name('layanan');
 
 Route::get('/galeri', [PusdaiController::class, 'galeri'])->name('galeri');
 
-Route::get('/berita', [PusdaiController::class, 'berita'])->name('berita');
-
-Route::get('/berita/{slug}', [PusdaiController::class, 'beritaDetail'])
-    ->name('berita.detail');
-
 Route::get('/agenda', [PusdaiController::class, 'agenda'])->name('agenda');
 
 Route::get('/donasi', [PusdaiController::class, 'donasi'])->name('donasi');
