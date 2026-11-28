@@ -23,3 +23,6 @@ services:
         value: admin@pusdai.com
       - key: ADMIN_PASSWORD
         value: password1234
+      # Tambahkan DATABASE_URL di dashboard Render (bukan di file ini)
+      # berisi connection string Postgres dari Neon agar data tidak hilang
+      # saat deploy ulang. Lihat docs/POSTGRES-NEON.md.

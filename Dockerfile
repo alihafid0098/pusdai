@@ -12,8 +12,8 @@ RUN composer dump-autoload --optimize --no-dev
 FROM php:8.3-apache
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends libzip-dev libpng-dev libonig-dev unzip \
-    && docker-php-ext-install pdo pdo_sqlite mbstring zip \
+    && apt-get install -y --no-install-recommends libzip-dev libpng-dev libonig-dev libpq-dev unzip \
+    && docker-php-ext-install pdo pdo_sqlite pdo_pgsql mbstring zip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod rewrite headers \

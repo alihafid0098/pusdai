@@ -63,3 +63,9 @@ paling sedikit pengaturan dan otomatis jalan.
 - Kirim `sitemap.xml` ke Google Search Console agar halaman terindeks.
 - Ganti `ADMIN_PASSWORD` sebelum situs dibuka ke publik, lalu login ke
   `/admin` untuk menambah agenda dan informasi beranda.
+
+## Database permanen (disarankan sebelum isi konten asli)
+
+Pakai Postgres gratis dari Neon dengan mengikuti `docs/POSTGRES-NEON.md`.
+Setelah `DATABASE_URL` diisi di Render, data admin tidak lagi hilang saat
+deploy ulang.
