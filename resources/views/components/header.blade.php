@@ -144,7 +144,9 @@
                 type="button"
                 class="mobile-menu-button"
                 id="mobile-menu-button"
-                aria-label="Menu"
+                aria-label="Buka menu"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
             >
                 <i data-lucide="menu" id="menu-icon"></i>
                 <i data-lucide="x" id="close-icon"></i>
