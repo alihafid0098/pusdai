@@ -68,3 +68,31 @@ document.addEventListener("DOMContentLoaded", function () {
     window.lucide.createIcons();
   }
 });
+
+
+// Accessible mobile navigation toggle
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("mobile-menu-button");
+  const menu = document.getElementById("mobile-menu");
+  if (!button || !menu) return;
+
+  function setMenuOpen(isOpen) {
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute("aria-label", isOpen ? "Tutup menu" : "Buka menu");
+    menu.classList.toggle("open", isOpen);
+  }
+
+  button.addEventListener("click", function () {
+    setMenuOpen(button.getAttribute("aria-expanded") !== "true");
+  });
+
+  menu.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      setMenuOpen(false);
+    });
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") setMenuOpen(false);
+  });
+});
